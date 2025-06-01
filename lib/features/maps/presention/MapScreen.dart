@@ -49,7 +49,7 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body:Stack(
+      body: Stack(
         children: [
           GoogleMap(
               onMapCreated: (GoogleMapController controller) {
@@ -57,18 +57,18 @@ class _MapScreenState extends State<MapScreen> {
               },
               markers: Markers,
               mapType: MapType.normal,
-              initialCameraPosition: intialCameraPostion) ,
+              initialCameraPosition: intialCameraPostion),
           Positioned(
               bottom: 50,
               child: Container(
-
-                child: Text("currentLoction by text "),))
+                child: Text("currentLoction by text "),
+              ))
         ],
       ),
     );
   }
 
-  Future<void>  MoveToPostion(LatLng loction) async {
+  Future<void> MoveToPostion(LatLng loction) async {
     GoogleMapController controller = await _controller.future;
     controller.animateCamera(CameraUpdate.newCameraPosition(
         CameraPosition(target: loction, zoom: 16)));

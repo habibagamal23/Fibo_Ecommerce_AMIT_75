@@ -1,3 +1,4 @@
+import 'package:fiboecommerce/features/Auth/presention/views/LoginScreen.dart';
 import 'package:fiboecommerce/features/maps/presention/MapScreen.dart';
 import 'package:fiboecommerce/main.dart';
 import 'package:flutter/material.dart';
@@ -10,7 +11,7 @@ class RouterGeneration {
   static const String maps = "/maps";
 
   static GoRouter goRouter = GoRouter(
-      initialLocation: maps,
+      initialLocation: login,
       routes: [
         GoRoute(
             path: splash,
@@ -18,14 +19,14 @@ class RouterGeneration {
               return Sec();
             }),
         GoRoute(
-            path: home,
-            builder: (context, state) {
-              return MapSample();
-            }),
-        GoRoute(
             path: maps,
             builder: (context, state) {
               return MapScreen();
+            }),
+        GoRoute(
+            path: login,
+            builder: (context, state) {
+              return Loginscreen();
             }),
       ],
       debugLogDiagnostics: true,

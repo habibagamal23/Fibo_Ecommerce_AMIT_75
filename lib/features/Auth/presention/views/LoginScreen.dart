@@ -1,4 +1,3 @@
-import 'package:fiboecommerce/features/Auth/presention/LoginCubit/login_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -6,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../../../../core/routing/router_generation_config.dart';
 import '../../../../core/widgets/custom_text_field.dart';
 import '../../../../core/widgets/primay_button_widget.dart';
+import '../viewModel/login_cubit.dart';
 
 class Loginscreen extends StatelessWidget {
   const Loginscreen({super.key});

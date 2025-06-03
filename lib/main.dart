@@ -1,7 +1,10 @@
 import 'dart:async';
 
+import 'package:dio/dio.dart';
 import 'package:easy_localization/easy_localization.dart';
-import 'package:fiboecommerce/features/Auth/presention/LoginCubit/login_cubit.dart';
+import 'package:fiboecommerce/core/network/apiService.dart';
+import 'package:fiboecommerce/core/network/dioService.dart';
+import 'package:fiboecommerce/features/Auth/data/repo/AuthRepoImpl.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -11,6 +14,8 @@ import 'core/routing/router_generation_config.dart';
 import 'core/service_locator/service_locator.dart';
 import 'core/storage/storage_helper.dart';
 import 'core/styling/theme_data.dart';
+import 'features/Auth/data/repo/auth_repository.dart';
+import 'features/Auth/presention/viewModel/login_cubit.dart';
 import 'generated/codegen_loader.g.dart';
 import 'generated/locale_keys.g.dart';
 import 'network.dart';
@@ -19,9 +24,13 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
 
+  Dio dio = Dio();
+  ApiService apiService = DioService(dio);
+  AuthRepository authRepository = AuthRepoImpl(apiService);
+
   runApp(EasyLocalization(
-    child:
-        BlocProvider(child: const MyApp(), create: (context) => LoginCubit()),
+    child: BlocProvider(
+        child: const MyApp(), create: (context) => LoginCubit(authRepository)),
     supportedLocales: [Locale('en'), Locale('ar')],
     path: "assets/translations",
     fallbackLocale: Locale('en'),

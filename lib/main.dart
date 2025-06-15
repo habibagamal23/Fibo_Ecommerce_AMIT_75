@@ -16,6 +16,8 @@ import 'core/storage/storage_helper.dart';
 import 'core/styling/theme_data.dart';
 import 'features/Auth/data/repo/auth_repository.dart';
 import 'features/Auth/presention/viewModel/login_cubit.dart';
+import 'features/Home/data/repos/HomeRepostiy.dart';
+import 'features/Home/presention/cubit/home_cubit.dart';
 import 'generated/codegen_loader.g.dart';
 import 'generated/locale_keys.g.dart';
 import 'network.dart';
@@ -27,10 +29,15 @@ void main() async {
   Dio dio = Dio();
   ApiService apiService = DioService(dio);
   AuthRepository authRepository = AuthRepoImpl(apiService);
+HomeRepo homeRepo = HomeRepoImp(apiService);
 
   runApp(EasyLocalization(
-    child: BlocProvider(
-        child: const MyApp(), create: (context) => LoginCubit(authRepository)),
+    child:
+    MultiBlocProvider(providers: [
+      BlocProvider(create:  (context) => LoginCubit(authRepository)),
+      BlocProvider(create:  (context) => HomeCubit(homeRepo)),
+    ],
+      child: const MyApp(), ),
     supportedLocales: [Locale('en'), Locale('ar')],
     path: "assets/translations",
     fallbackLocale: Locale('en'),

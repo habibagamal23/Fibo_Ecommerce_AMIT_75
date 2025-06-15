@@ -14,9 +14,9 @@ class AuthRepoImpl implements AuthRepository {
 
   @override
   Future<Either<Failures, UserModel>> loginUserbyApi(
-      String username, String password)async {
+      String username, String password) {
     try {
-      final data = await apiService.post("https://dummyjson.com/auth/login", {
+      final data = apiService.post("https://dummyjson.com/auth/login", {
         'username': username,
         'password': password,
       });

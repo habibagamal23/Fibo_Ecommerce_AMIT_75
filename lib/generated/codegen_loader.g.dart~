@@ -2,9 +2,9 @@
 
 // ignore_for_file: prefer_single_quotes, avoid_renaming_method_parameters, constant_identifier_names
 
+import 'dart:views';
 
 import 'package:easy_localization/easy_localization.dart' show AssetLoader;
-import 'package:flutter/material.dart';
 
 class CodegenLoader extends AssetLoader{
   const CodegenLoader();

@@ -5,6 +5,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:fiboecommerce/core/network/apiService.dart';
 import 'package:fiboecommerce/core/network/dioService.dart';
 import 'package:fiboecommerce/features/Auth/data/repo/AuthRepoImpl.dart';
+import 'package:fiboecommerce/features/cart/presention/cubit/cart_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -25,19 +26,16 @@ import 'network.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
-
-  Dio dio = Dio();
-  ApiService apiService = DioService(dio);
-  AuthRepository authRepository = AuthRepoImpl(apiService);
-HomeRepo homeRepo = HomeRepoImp(apiService);
-
+  setupServiceLocator();
   runApp(EasyLocalization(
-    child:
-    MultiBlocProvider(providers: [
-      BlocProvider(create:  (context) => LoginCubit(authRepository)),
-      BlocProvider(create:  (context) => HomeCubit(homeRepo)),
-    ],
-      child: const MyApp(), ),
+    child: MultiBlocProvider(
+      providers: [
+        BlocProvider(create: (context) => getIt<LoginCubit>()),
+        BlocProvider(create: (context) => getIt<HomeCubit>()),
+        BlocProvider(create: (context) => getIt<CartCubit>()),
+      ],
+      child: const MyApp(),
+    ),
     supportedLocales: [Locale('en'), Locale('ar')],
     path: "assets/translations",
     fallbackLocale: Locale('en'),

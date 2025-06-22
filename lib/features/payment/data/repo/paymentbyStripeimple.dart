@@ -27,8 +27,8 @@ class PaymentbyStripeimple implements PaymentRepo {
           {"amount": amount, "currency": "usd"},
           options:
               Options(contentType: Headers.formUrlEncodedContentType, headers: {
-            // 'Authorization':
-            //     'Bearer sk_test_51QLO18KCYYcZnriZy6tOCTMspmHTC38AV7zMSfFD73CdQACvjgwNmwIDkFi8SI7D8xDrSfAMmaJlRTwv9PqqIOTI00iZvgjjVX'
+            'Authorization':
+                'Bearer '
           }));
 
       return Future.value(Right(PaymentIntenModel.fromjson(data)));

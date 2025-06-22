@@ -49,6 +49,7 @@ dependencies:
   pretty_dio_logger: ^1.4.0
   json_annotation: ^4.9.0
   dartz: ^0.10.1
+  flutter_stripe: ^11.5.0
 
 dev_dependencies:
   flutter_test:

@@ -9,6 +9,7 @@ import 'package:fiboecommerce/features/cart/presention/cubit/cart_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'core/routing/router_generation_config.dart';
@@ -26,6 +27,7 @@ import 'network.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await EasyLocalization.ensureInitialized();
+  Stripe.publishableKey = "pk_test_51QLO18KCYYcZnriZlyXhnG9ZCL51lgQVnNkTiSDje6oveaCmfxdUNmevP06mmqzdevZTi2GKJBTvsWRcM12u9jOY0043YgS4XM";
   setupServiceLocator();
   runApp(EasyLocalization(
     child: MultiBlocProvider(

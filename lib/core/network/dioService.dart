@@ -16,9 +16,9 @@ class DioService implements ApiService {
   }
 
   @override
-  Future post(String Url, Map<String, dynamic> body) async {
+  Future post(String Url, Map<String, dynamic> body, {Options? options}) async {
     try {
-      final response = await _dio.post(Url, data: body);
+      final response = await _dio.post(Url, data: body, options: options);
       return response.data;
     } catch (e) {
       rethrow;

@@ -19,7 +19,7 @@ class AuthRepoImpl implements AuthRepository {
       final data = await apiService.post("https://dummyjson.com/auth/login", {
         'username': username,
         'password': password,
-      });
+      } );
       final user = UserModel.fromJson(data as Map<String, dynamic>);
       return Future.value(Right(user));
     } catch (e) {

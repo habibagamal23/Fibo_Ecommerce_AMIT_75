@@ -1,16 +1,23 @@
-# fiboecommerce
 
-A new Flutter project.
+# 🛍️ FiboEcommerce
 
-## Getting Started
+A scalable, modern Flutter e-commerce application built with clean architecture and SOLID principles. FiboEcommerce is designed to provide a seamless shopping experience with features like advanced search, Google Maps integration, payment gateway support, and robust API consumption.
 
-This project is a starting point for a Flutter application.
+---
 
-A few resources to get you started if this is your first Flutter project:
+## 🚀 Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- ✅ **Clean Architecture** (Separation of Concerns)
+- ✅ **SOLID Principles** applied across the codebase
+- 🔍 **Product Search** with real-time suggestions
+- 📍 **Google Maps Integration** for address selection
+- 💳 **Payment Integration** (e.g., Stripe)
+- 🔐 **Secure Authentication**
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+https://github.com/user-attachments/assets/2449fc6c-330a-408d-8b20-53b70e608eff
+
+
+- 📦 **API Integration** with error handling & caching
+- 🎨 **Responsive UI** with custom themes
+- 🌐 **Localization Ready**
+- 📁 Modular structure for easy scalability
